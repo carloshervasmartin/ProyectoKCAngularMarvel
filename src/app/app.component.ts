@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuElement } from '@core/interfaces/menu-element.interface';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'comics';
-
+  menuElements: MenuElement[] = [
+    {title: 'Catálogo', path: '/catalogo'},
+    {title: 'Colección', path: '/coleccion'},
+  ];
   saludar() {
     return 'Hola mundo';
   }
