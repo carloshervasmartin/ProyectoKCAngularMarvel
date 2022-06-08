@@ -1,14 +1,16 @@
-# Comics
+# Comics Marvel 🦸‍♀️🦸‍♂️
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+Este proyecto consiste en la creación de una web que trabaja con la [Marvel Comics API](https://developer.marvel.com/) para obtener la información que necesitamos. 
+
+
+![](https://i.gifer.com/LNuy.gif)
+
+
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
