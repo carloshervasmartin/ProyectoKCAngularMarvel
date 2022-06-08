@@ -8,13 +8,13 @@ import { MenuElement } from '@core/interfaces/menu-element.interface';
 })
 
 export class AppComponent {
-  title = 'comics';
+  title = 'claro';
   menuElements: MenuElement[] = [
     {title: 'Catálogo', path: '/catalogo'},
     {title: 'Colección', path: '/coleccion'},
   ];
   saludar() {
-    return 'Hola mundo';
+    console.log('Hola mundo');
   }
 
 }
