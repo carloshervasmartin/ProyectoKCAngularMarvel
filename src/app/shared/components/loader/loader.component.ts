@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'cm-loader',
   templateUrl: './loader.component.html',
-  styleUrls: ['./loader.component.css']
+  styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent implements OnInit {
 
@@ -11,5 +11,6 @@ export class LoaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 }

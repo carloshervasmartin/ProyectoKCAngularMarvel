@@ -1,2 +1,14 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+
 <cm-header [menuElements]="menuElements" (rightElementClicked)="saludar()" [(tema)]="title"></cm-header>
-<h1>{{title}}</h1>
+<body>
+
+  <div id="superior">
+    <h2 class="main-title">{{title}}</h2>
+    <img src="https://logodownload.org/wp-content/uploads/2017/05/marvel-logo-4.png" width="500">
+    <cm-loader *ngIf="loading"></cm-loader>
+  </div>
+</body>

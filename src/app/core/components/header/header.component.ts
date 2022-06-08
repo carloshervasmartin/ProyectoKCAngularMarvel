@@ -4,7 +4,7 @@ import { MenuElement } from '@core/interfaces/menu-element.interface';
 @Component({
   selector: 'cm-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges{
 
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, OnChan
   }
 
   ngOnInit(): void {
-    console.log(this.menuElements);
+    console.log('ngOnInit');
   }
 
   ngAfterViewInit(): void {
@@ -44,9 +44,16 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, OnChan
 
   rightElementClick(){
 
-    this.temaChange.emit('Mucho Betis');
+    this.temaChange.emit('Mucho Betis 💚');
 
     this.rightElementClicked.emit(true);
   }
+
+
+
+
+
+
+
 
 }
