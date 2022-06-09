@@ -12,7 +12,7 @@ export class AppComponent {
   title = '😀';
   loading: boolean = false;
   menuElements: MenuElement[] = [
-    {title: 'Catálogo', path: '/catalogo'},
+    {title: 'Catálogo', path: '/catalog'},
     {title: 'Colección', path: '/coleccion'},
   ];
 
