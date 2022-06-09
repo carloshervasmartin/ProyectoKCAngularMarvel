@@ -1,7 +1,7 @@
 <div class="search-section">
-  <form>
-    <input type="text" id="name" name="name" placeholder="Search title"><br>
-    <input type="number" id="year" name="year" placeholder="Year"><br>
-    <input type="submit" value="🔎">
+  <form [formGroup]="searchForm" (ngSubmit)="submit()">
+    <input type="text" id="name" name="name" placeholder="Search title" formControlName="name"><br>
+    <input type="number" id="year" name="year" placeholder="Year" formControlName="year"><br>
+    <input type="submit" value="🔎" [disabled]="!searchForm.valid">
   </form>
 </div>
