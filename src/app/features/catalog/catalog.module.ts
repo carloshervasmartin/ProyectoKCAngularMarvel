@@ -3,15 +3,23 @@ import { CommonModule } from '@angular/common';
 
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { CatalogComponent } from './catalog.component';
+import { CatalogListComponent } from './pages/catalog-list/catalog-list.component';
+import { SharedModule } from '@shared/shared.module';
+import { CatalogItemComponent } from './components/catalog-item/catalog-item.component';
+import { SearchFormComponent } from './components/search-form/search-form.component';
 
 
 @NgModule({
   declarations: [
-    CatalogComponent
+    CatalogComponent,
+    CatalogListComponent,
+    CatalogItemComponent,
+    SearchFormComponent
   ],
   imports: [
     CommonModule,
-    CatalogRoutingModule
+    CatalogRoutingModule,
+    SharedModule
   ]
 })
 export class CatalogModule { }

@@ -1,0 +1,15 @@
+
+<article class="card card--1">
+
+  <div class="card__img" [ngStyle]="{'background-image': comic.images[0].path}"> </div>
+  <a href="#" class="card_link" >
+     <div class="card__img--hover" > <img src={{comic.images[0].path}} class="portada-comic"> </div>
+   </a>
+
+  <div class="card__info">
+    <span class="card__category"> Comic </span>
+    <h3 class="card__title">{{comic.title}}</h3>
+    <span class="card__by">Description: <a href="#" class="card__author" title="author">{{comic.description}}</a></span>
+  </div>
+
+</article>

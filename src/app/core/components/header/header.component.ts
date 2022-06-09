@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy, OnChan
   @Input()
   menuElements: MenuElement[] = [];
 
+
+
   // Data binding salida
   @Output()
   rightElementClicked: EventEmitter <boolean> = new EventEmitter<boolean>();

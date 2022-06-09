@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuElement } from '@core/interfaces/menu-element.interface';
+import { Image } from '@core/interfaces/image.interface';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,13 @@ export class AppComponent {
   loading: boolean = false;
   menuElements: MenuElement[] = [
     {title: 'Catálogo', path: '/catalog'},
-    {title: 'Colección', path: '/coleccion'},
+    {title: 'Colección', path: '/collection'},
   ];
+  imageElements: Image[] = [
+    {path: 'https://i.pinimg.com/originals/82/bf/db/82bfdb84747c0fbb4cfed58cfc5365a2.jpg', extension: 'jpg'},
+    {path: 'https://i.pinimg.com/originals/82/bf/db/82bfdb84747c0fbb4cfed58cfc5365a2.jpg', extension: 'jpg'},
+  ]
+  ;
 
   saludar() {
     console.log('Hola mundo');

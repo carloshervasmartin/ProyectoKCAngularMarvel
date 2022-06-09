@@ -1,0 +1,31 @@
+
+.search-section{
+  margin: 10px;
+  border: 1px solid #e23636;
+  padding: 15px;
+  border-radius: 2em;
+  form {
+    display: flex;
+    justify-content: center;
+    justify-items:auto;
+
+  }
+  input{
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+    margin-right: 2em;
+  }
+  input:focus {
+    background-color: #e99fff;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+  }
+}
+
+
+
+
