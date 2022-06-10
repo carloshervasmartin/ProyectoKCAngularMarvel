@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Image } from '@core/interfaces/image.interface';
 import { Comic } from '@core/models/comic.model';
+import { CatalogService } from '../../services/catalog.service';
 
 @Component({
   selector: 'cm-catalog-list',
@@ -19,12 +20,16 @@ export class CatalogListComponent implements OnInit {
   ];
   page: number = 1;
 
-  @Input()
-  imageElements: Image[] = []
-
-  constructor() { }
+  constructor(private catalogService: CatalogService){}
 
   ngOnInit(): void {
+  }
+
+  search(search: {[term: string]: any}) {
+    console.warn('Búsqueda', search);
+    this.catalogService.searchComic(search).subscribe(resp => {
+      this.comics = resp;
+    });
   }
 
 }

@@ -1,9 +1,16 @@
 
 .search-section{
-  margin: 10px;
-  border: 1px solid #e23636;
-  padding: 15px;
-  border-radius: 2em;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-left: 800px;
+  margin-right: 800px;
+  //#e23636
+  padding: 10px;
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #d9d9d9,
+               -20px -20px 60px #ffffff;
+
   form {
     display: flex;
     justify-content: center;
@@ -18,13 +25,13 @@
     margin-right: 2em;
   }
   input:focus {
-    background-color: #e99fff;
+    background-color: #e8a3a3;
     border-radius: 50px;
-    background: #e0e0e0;
     box-shadow:  20px 20px 60px #bebebe,
              -20px -20px 60px #ffffff;
   }
 }
+
 
 
 

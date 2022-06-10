@@ -393,3 +393,16 @@ nav .menu-item.highlight:hover ~ #sub-menu-container #sub-menu-holder #sub-menu-
 #info-box a:hover {
   color: rgba(255,255,255,0.5);
 }
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:2em;
+  margin-bottom:3em;
+}
+
+.logo{
+  margin-left: 5em;
+  width: 10%;
+}
