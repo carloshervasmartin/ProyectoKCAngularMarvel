@@ -19,7 +19,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if(request.url.includes(environment.api_server)) {
       const requestCopy = request.clone({
         params: (request.params ? request.params : new HttpParams())
-        .append('api_key', environment.public_key)
+        .append('apikey', environment.public_key)
         .append('ts', environment.ts)
         .append('hash', environment.hash)
       })

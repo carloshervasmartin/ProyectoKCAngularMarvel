@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApiResponse } from '@core/interfaces/api-response';
 import { Comic } from '@core/models/comic.model';
+import { ComicApiService } from '@core/services/comic-api.service';
 import { environment } from '@env/environment';
 import { map, Observable } from 'rxjs';
 
@@ -9,15 +11,11 @@ import { map, Observable } from 'rxjs';
 })
 export class CatalogService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private comicApi: ComicApiService) { }
 
 
-  searchComic(filters?: {[term: string]: any}) : Observable<Comic[]> {
-    const url = `${environment.api_server}/v1/public/comics`;
-    return this.http.get(url).pipe(map((resp:any) =>
-        resp.data.results.map((comic:any) => new Comic(comic))
-    )
-    );
+  searchComic(filters?: {[term: string]: any}) : Observable<ApiResponse<Comic>> {
+    return this.comicApi.list(filters);
   }
 
 }

@@ -57,9 +57,9 @@ export class Comic implements Model {
   constructor(input: any) {
       Object.assign(this, input);
 
-      if (input.creators) {
-          this.creators = input.creators.map((c: any) => new Creator(c));
-      }
+      //if (input.creators && input.creatos.items) {
+      //    this.creators = input.creators.items.map((c: any) => new Creator(c));
+      // }
   }
   serialize() {
       return {

@@ -8,12 +8,23 @@ import { Comic } from '@core/models/comic.model';
 })
 export class CatalogItemComponent implements OnInit {
 
+
+
   @Input()
   comic!: Comic;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  getImageUrl() {
+    if (this.comic.images && this.comic.images.length > 0 && this.comic.images[0].path) {
+      return this.comic.images[0].path + '/portrait_fantastic.' + this.comic.images[0].extension;
+    }else{
+      return 'https://i.blogs.es/85aa44/stan-lee/1366_2000.jpg';
+    }
+
   }
 
 }

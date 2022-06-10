@@ -1,9 +1,10 @@
 
-<article class="card card--1">
+<section class="main-section-cards">
+<article class="card">
 
-  <div class="card__img" [ngStyle]="{'background-image': comic.images[0].path}"> </div>
+  <div class="card__img" [ngStyle]="{'background-image': getImageUrl()}"> </div>
   <a href="#" class="card_link" >
-     <div class="card__img--hover" > <img src={{comic.images[0].path}} class="portada-comic"> </div>
+     <div class="card__img--hover" > <img [src]="getImageUrl()" class="portada-comic"> </div>
    </a>
 
   <div class="card__info">
@@ -13,3 +14,4 @@
   </div>
 
 </article>
+</section>

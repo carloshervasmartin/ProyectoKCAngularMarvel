@@ -10,26 +10,31 @@ import { CatalogService } from '../../services/catalog.service';
 })
 export class CatalogListComponent implements OnInit {
 
-  comics: Comic[] = [
-    new Comic({
-      id: 1,
-      title: 'Iron Man #1',
-      description: 'Its the big Premiere! The Invincible Iron Man versus the menaces of Whiplash and AIM. Featuring Nick Fury and SHIELD.',
-      images: [{path: 'https://i.annihil.us/u/prod/marvel/i/mg/e/c0/51b5f6dacc2d1/clean.jpg', extension: ''}]
-    })
-  ];
+  comics: Comic[] = [];
   page: number = 1;
+  totalPages: number = 1;
+  actualFilters: {[term: string]: any} = {};
+  limit: number = 20;
 
   constructor(private catalogService: CatalogService){}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   search(search: {[term: string]: any}) {
     console.warn('Búsqueda', search);
-    this.catalogService.searchComic(search).subscribe(resp => {
-      this.comics = resp;
+    this.catalogService.searchComic(search).subscribe((resp) => {
+      this.comics = resp.results;
+      this.page = (resp.offset/resp.limit) + 1;
+      this.totalPages = Math.ceil(resp.total/resp.limit);
+      this.limit = resp.limit;
+      this.actualFilters = search;
     });
   }
 
+  changePage() {
+    this.actualFilters = { ...this.actualFilters, offset: (this.page - 1) * this.limit };
+    this.search(this.actualFilters);
+  }
 }
+
+
