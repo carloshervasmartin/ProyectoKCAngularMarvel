@@ -1,6 +1,7 @@
 import { Model } from "@core/interfaces/model.interface";
 import { Creator } from "@core/models/creator.model";
 import { Image } from "@core/interfaces/image.interface";
+import { ComicDate } from "@core/interfaces/model.comic-date.interface";
 
 export class Comic implements Model {
   private _id!: number;
@@ -10,6 +11,7 @@ export class Comic implements Model {
   private _pageCount!: number;
   private _images!: Image[];
   private _creators!: Creator[];
+  private _onsaleDate!: Date;
 
   public get id(): number {
       return this._id;
@@ -54,12 +56,27 @@ export class Comic implements Model {
       this._creators = value;
   }
 
+  public get onsaleDate(): Date{
+      return this._onsaleDate;
+  }
+  public set onsaleDate(value: Date) {
+      this._onsaleDate = value;
+  }
+
+
   constructor(input: any) {
       Object.assign(this, input);
 
-      //if (input.creators && input.creatos.items) {
-      //    this.creators = input.creators.items.map((c: any) => new Creator(c));
-      // }
+      if (input && input.dates && input.dates.length > 0) {
+          const filterDates = input.dates.filter((d: any) => d.type === 'onsaleDate');
+          if (filterDates && filterDates.length > 0) {
+            this._onsaleDate = new Date(filterDates[0].date);
+      }
+    }
+
+      if (input.creators && input.creatos.items) {
+          this.creators = input.creators.items.map((c: any) => new Creator(c));
+       }
   }
   serialize() {
       return {
@@ -69,7 +86,8 @@ export class Comic implements Model {
           isbn: this.isbn,
           pageCount: this.pageCount,
           images: this.images,
-          creators: this.creators.map(c => c.serialize())
+          creators: this.creators.map(c => c.serialize()),
+          onSaleDate: this.onsaleDate.toISOString(),
       }
   }
 }

@@ -4,5 +4,7 @@
 <cm-catalog-item *ngFor="let comic of comics" [comic]="comic"></cm-catalog-item>
 
 
-<cm-pagination [(page)]="page" [totalPages]="totalPages" (pageChange)="changePage()" *ngIf="totalPages > 1"></cm-pagination>
+<cm-pagination [(page)]="page" [totalPages]="(catalogService.pagination$ | async)?.totalPages ?? 0" (pageChange)="changePage()" *ngIf="totalPages > 1"></cm-pagination>
+
+<cm-loader *ngIf="catalogService.loading$ | async"></cm-loader>
 
