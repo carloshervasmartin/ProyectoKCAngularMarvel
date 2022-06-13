@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Comic } from '@core/models/comic.model';
+import { CatalogService } from '../../services/catalog.service';
 
 @Component({
   selector: 'cm-catalog-item',
@@ -16,7 +17,7 @@ export class CatalogItemComponent implements OnInit {
   @Output()
   click: EventEmitter<Comic> = new EventEmitter<Comic>();
 
-  constructor() { }
+  constructor(public catalogService: CatalogService) { }
 
   ngOnInit(): void {
   }
@@ -31,7 +32,7 @@ export class CatalogItemComponent implements OnInit {
   }
 
   clickElement() {
-    this.click.emit(this.comic);
+    this.catalogService.setSelected$(this.comic);
   }
 
 

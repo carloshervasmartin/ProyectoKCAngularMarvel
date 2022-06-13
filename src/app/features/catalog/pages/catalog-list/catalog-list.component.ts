@@ -23,12 +23,6 @@ export class CatalogListComponent implements OnInit {
       if (comics) {
         this.comics = comics;
       }
-  }
-
-  search(search: {[term :string]: any}) {
-    console.warn('Búsqueda', search);
-    this.actualFilters = search;
-    this.catalogService.searchComic(this.actualFilters);
     });
     this.catalogService.pagination$.subscribe((pagination) => {
       this.page = pagination.page;
@@ -37,10 +31,17 @@ export class CatalogListComponent implements OnInit {
     });
   }
 
+  search(search: { [term: string]: any }) {
+    console.warn('Búsqueda', search);
+    this.actualFilters = search;
+    this.catalogService.searchComic(this.actualFilters);
+  }
+
   changePage() {
     this.actualFilters = { ...this.actualFilters, offset: (this.page - 1) * this.limit };
     this.search(this.actualFilters);
   }
+
 
   viewDetail(comic: Comic) {
     this.catalogService.viewComic(comic);

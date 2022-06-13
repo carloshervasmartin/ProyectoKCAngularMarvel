@@ -1,14 +1,11 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiResponse } from '@core/interfaces/api-response';
 import { Pagination } from '@core/interfaces/pagination.interface';
 import { Comic } from '@core/models/comic.model';
 import { CollectionApiService } from '@core/services/collection-api.service';
 import { ComicApiService } from '@core/services/comic-api.service';
 import { ComicStateService } from '@core/services/comic-state.service';
-import { environment } from '@env/environment';
-import { map, Observable } from 'rxjs';
+import { Observable, finalize} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,20 +26,29 @@ export class CatalogService {
     return this.comicState.isLoading$();
   }
 
+  setSelected$(comic: Comic) {
+    this.comicState.setSelected(comic);
+  }
 
-  searchComic(filters?: {[term: string]: any}) {
-    this.comicState.setLoading(true)
-    this.comicApi
-    .list(filters)
-    .pipe(finalize(() => this.comicState.setLoading(false)))
+  getSelected$(): Observable<Comic | null> {
+    return this.comicState.getSelected$();
+  }
+
+
+  searchComic(filters?: { [term: string]: any }) {
+    this.comicState.setLoading(true);
+    this.comicApi.list(filters)
+    .pipe(
+      finalize(()=> this.comicState.setLoading(false))
+    )
     .subscribe((resp) => {
       this.comicState.set(resp.results);
       this.comicState.setPagination({
-        page : (resp.offset/resp.limit) + 1,
-        totalPages : Math.ceil(resp.total/resp.limit),
-        limit : resp.limit
-      })
-    }
+        page: resp.offset / resp.limit + 1,
+        totalPages: Math.ceil(resp.total / resp.limit),
+        limit: resp.limit,
+      });
+    },
     );
   }
 
