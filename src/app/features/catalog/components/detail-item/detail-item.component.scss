@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+}
+
+.header {
+  height: 100px;
+  background-color: #000;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 36px;
+  color: #50FF44;
+  text-align: center;
+  line-height: 100px;
+}
+.content {
+  text-align: center;
+/*   display: none; */
+}
+.ad {
+  width: 620px;
+  height: 120px;
+  margin: 24px auto;
+  background-repeat: no-repeat;
+}
+.comic-des {
+  display: flex;
+  justify-content: center;
+}
+.comic-cover {
+  width: 300px;
+  height: 446px;
+  background-image: url(https://hexschool.github.io/THE_F2E_Design/week5-comic%20viewer/assets/comic%20cover.png);
+  background-size: contain;
+  border: 4px solid #000000;
+}
+.comic-title {
+  width: 317px;
+  height: 52px;
+  background-color: #000;
+  color: #fff;
+  line-height: 52px;
+  font-size: 36px;
+  font-weight: 700;
+}
+.detail {
+  text-align: left;
+  padding-top: 20px;
+  font-weight: 400;
+}
+.detail > h6 {
+  display: inline-block;
+  width: 50px;
+  margin: 8px 20px;
+  font-weight: 900;
+}
+.detail > span > i {
+  margin-right: 10px;
+}
+.summary {
+  width: 300px;
+  height: 202px;
+  margin-left: 20px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.chap {
+  border: 4px solid #000000;
+  margin: 0 auto;
+  width: 620px;
+  font-size: 16px;
+  text-align: left;
+  font-weight: 900;
+}
+.chap > a {
+  border-style: none;
+  color: #000;
+}
+.chap-badge {
+  border-radius: 0px;
+  background-color: #000;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  margin-right: 458px;
+}
+.badge-new {
+  background: #50FF44;
+  border-radius: 0px;
+  font-size: 14px;
+  color: #000000;
+  line-height: 14px;
+}
+/* .comic-reader {
+  width: 620px;
+}
+.page-select > span {
+  font-weight: 900;
+}
+.dropdown > select {
+  width: 127px;
+  height: 35px;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  font-weight: 900;
+}
+ */

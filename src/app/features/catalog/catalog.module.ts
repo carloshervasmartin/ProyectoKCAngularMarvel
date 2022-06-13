@@ -8,6 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { CatalogItemComponent } from './components/catalog-item/catalog-item.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailItemComponent } from './components/detail-item/detail-item.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CatalogComponent,
     CatalogListComponent,
     CatalogItemComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    DetailItemComponent
   ],
   imports: [
     CommonModule,

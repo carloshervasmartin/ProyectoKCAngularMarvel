@@ -11,6 +11,7 @@ import { map, Observable } from 'rxjs';
 })
 export class ComicApiService implements ApiService<Comic>{
 
+  readonly url: string = `${environment.api_server}/v1/public/comics`;
   constructor(private http: HttpClient) { }
 
   list(filters?: { [term: string]: any}): Observable<ApiResponse<Comic>>{

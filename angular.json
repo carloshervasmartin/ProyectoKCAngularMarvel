@@ -4,7 +4,11 @@
   "newProjectRoot": "projects",
   "projects": {
     "comics": {
+
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "es-ES"
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -20,6 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist/comics",
             "index": "src/index.html",
             "main": "src/main.ts",

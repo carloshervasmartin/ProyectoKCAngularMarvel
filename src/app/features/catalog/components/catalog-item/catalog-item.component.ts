@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Comic } from '@core/models/comic.model';
 
 @Component({
@@ -13,6 +13,9 @@ export class CatalogItemComponent implements OnInit {
   @Input()
   comic!: Comic;
 
+  @Output()
+  click: EventEmitter<Comic> = new EventEmitter<Comic>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -26,5 +29,10 @@ export class CatalogItemComponent implements OnInit {
     }
 
   }
+
+  clickElement() {
+    this.click.emit(this.comic);
+  }
+
 
 }

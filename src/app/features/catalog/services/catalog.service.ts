@@ -1,8 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiResponse } from '@core/interfaces/api-response';
 import { Pagination } from '@core/interfaces/pagination.interface';
 import { Comic } from '@core/models/comic.model';
+import { CollectionApiService } from '@core/services/collection-api.service';
 import { ComicApiService } from '@core/services/comic-api.service';
 import { ComicStateService } from '@core/services/comic-state.service';
 import { environment } from '@env/environment';
@@ -13,7 +15,7 @@ import { map, Observable } from 'rxjs';
 })
 export class CatalogService {
 
-  constructor(private comicApi: ComicApiService, private comicState: ComicStateService) {}
+  constructor(private comicApi: ComicApiService, private comicState: ComicStateService, private router: Router, private collectionApi: CollectionApiService) {}
 
   get comic$(): Observable<Comic[] | null> {
     return this.comicState.get$();
@@ -38,6 +40,16 @@ export class CatalogService {
         limit : resp.limit
       });
       this.comicState.setLoading(false);
+  }
+
+  viewComic(comic:Comic){
+    this.comicState.setSelected(comic);
+    this.router.navigate(['catalog/list/detail']);
+  }
+
+  addToCollection(comic: Comic){
+    comic.id = undefined;
+    this.collectionApi.add(comic).subscribe((resp) => {console.log(resp)});
   }
 
 }

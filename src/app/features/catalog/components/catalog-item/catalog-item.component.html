@@ -1,5 +1,5 @@
 
-<section class="main-section-cards">
+<section class="main-section-cards" (click)="clickElement()">
 <article class="card">
 
   <div class="card__img" [ngStyle]="{'background-image': getImageUrl()}"> </div>
@@ -9,8 +9,10 @@
 
   <div class="card__info">
     <span class="card__category"> Comic </span>
-    <h3 class="card__title">{{comic.title}}</h3>
+    <h3 class="card__title">{{comic.title | uppercase}}</h3>
+    <div>{{comic.creators | creators}}</div>
     <span class="card__by">Description: <a href="#" class="card__author" title="author">{{comic.description}}</a></span>
+    <a> {{comic.onsaleDate | date: 'longDate'}} </a>
   </div>
 
 </article>

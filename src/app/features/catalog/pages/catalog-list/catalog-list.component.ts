@@ -41,6 +41,12 @@ export class CatalogListComponent implements OnInit {
     this.actualFilters = { ...this.actualFilters, offset: (this.page - 1) * this.limit };
     this.search(this.actualFilters);
   }
+
+  viewDetail(comic: Comic) {
+    this.catalogService.viewComic(comic);
+  }
+
+
 }
 
 
