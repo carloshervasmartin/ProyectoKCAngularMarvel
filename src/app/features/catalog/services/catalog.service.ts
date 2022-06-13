@@ -31,25 +31,30 @@ export class CatalogService {
 
 
   searchComic(filters?: {[term: string]: any}) {
-    this.comicState.setLoading(true);
-    this.comicApi.list(filters).subscribe((resp) => {
+    this.comicState.setLoading(true)
+    this.comicApi
+    .list(filters)
+    .pipe(finalize(() => this.comicState.setLoading(false)))
+    .subscribe((resp) => {
       this.comicState.set(resp.results);
       this.comicState.setPagination({
         page : (resp.offset/resp.limit) + 1,
         totalPages : Math.ceil(resp.total/resp.limit),
         limit : resp.limit
-      });
-      this.comicState.setLoading(false);
+      })
+    }
+    );
   }
 
+
   viewComic(comic:Comic){
-    this.comicState.setSelected(comic);
-    this.router.navigate(['catalog/list/detail']);
+    this.comicState.setSelected(comic),
+    this.router.navigate(['catalog/list/detail'])
   }
 
   addToCollection(comic: Comic){
-    comic.id = undefined;
-    this.collectionApi.add(comic).subscribe((resp) => {console.log(resp)});
+    comic.id = undefined,
+    this.collectionApi.add(comic).subscribe((resp) => {console.log(resp)})
   }
 
-}
+  }

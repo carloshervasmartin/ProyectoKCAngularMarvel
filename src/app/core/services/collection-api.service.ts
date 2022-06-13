@@ -17,3 +17,4 @@ export class CollectionApiService implements ApiService<Comic> {
   add(comic: Comic): Observable<Comic> {
     return this.http.post<Comic>(this.url, comic.serialize()).pipe(map(resp => new Comic(resp)));
 }
+}

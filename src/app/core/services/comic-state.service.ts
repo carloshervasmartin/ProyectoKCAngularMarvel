@@ -7,6 +7,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ComicStateService implements StateService<Comic>{
+  getPagination$(): Observable<import("../interfaces/pagination.interface").Pagination> {
+    throw new Error('Method not implemented.');
+  }
+  setPagination(arg0: { page: number; totalPages: number; limit: number; }) {
+    throw new Error('Method not implemented.');
+  }
 
   private loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private elements$: BehaviorSubject<Comic[] | null> = new BehaviorSubject<Comic[] | null>([]);
